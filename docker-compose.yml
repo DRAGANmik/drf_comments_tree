@@ -1,0 +1,28 @@
+version: '3.8'
+
+
+services:
+  postgres:
+    image: postgres:13.3
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: local-pg
+      POSTGRES_PASSWORD: local-pg
+
+  web:
+    build: .
+    restart: always
+    volumes:
+      - static_value:/code/static/
+      - media_value:/code/media/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  static_value:
+  media_value:

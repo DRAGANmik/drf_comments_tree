@@ -1,0 +1,50 @@
+[tool.black]
+line-length = 79
+target-version = ['py37']
+include = '\.pyi?$'
+extend-exclude = '''
+(
+  /(
+    | venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+    | blog/settings
+  )/
+)
+'''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
+
+
+[tool.poetry]
+name = "comments"
+version = "0.1.0"
+description = ""
+authors = ["DRAGANmik <75855531+DRAGANmik@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.6"
+djangorestframework = "^3.12.4"
+django-debug-toolbar = "^3.2.1"
+django-mptt = "^0.12.0"
+psycopg2-binary = "2.8.6"
+django-filter = "^2.4.0"
+drf-yasg = "^1.20.0"
+flake8 = "^3.9.2"
+black = "^21.7b0"
+isort = "^5.9.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
